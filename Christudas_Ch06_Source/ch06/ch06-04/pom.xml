@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>rabbitmq-hello</groupId>
+    <artifactId>rabbitmq-hello</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <slf4jVersion>1.6.1</slf4jVersion>
+        <log4j2Version>2.7</log4j2Version>
+    </properties>
+
+    <dependencies>
+    
+        <!--dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>3.6.2</version>
+        </dependency-->
+        
+	<dependency>
+	    <groupId>org.springframework.amqp</groupId>
+	    <artifactId>spring-amqp</artifactId>
+	    <version>1.1.4.RELEASE</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>org.springframework.amqp</groupId>
+	    <artifactId>spring-rabbit</artifactId>
+	    <version>1.1.1.RELEASE</version>
+	</dependency>
+	
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4jVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j2Version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j2Version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j2Version}</version>
+		</dependency>
+
+    </dependencies>
+    
+	<profiles>
+	
+	 <!-- mvn test -Pmsg -->
+	 <profile>
+	  <id>msg</id>
+	  <build>
+	   <plugins>
+	    <plugin>
+	     <groupId>org.codehaus.mojo</groupId>
+	     <artifactId>exec-maven-plugin</artifactId>
+	     <version>1.1.1</version>
+	     <executions>
+	      <execution>
+	       <phase>test</phase>
+	       <goals>
+		<goal>java</goal>
+	       </goals>
+	       <configuration>
+		<mainClass>com.acme.ch06.ex04.MessageProcessorContainer</mainClass>
+	       </configuration>
+	      </execution>
+	     </executions>
+	    </plugin>
+	   </plugins>
+	  </build>
+	 </profile>
+
+	 <!-- mvn test -Pnet -->
+	 <profile>
+	  <id>net</id>
+	  <build>
+	   <plugins>
+	    <plugin>
+	     <groupId>org.codehaus.mojo</groupId>
+	     <artifactId>exec-maven-plugin</artifactId>
+	     <version>1.1.1</version>
+	     <executions>
+	      <execution>
+	       <phase>test</phase>
+	       <goals>
+		<goal>java</goal>
+	       </goals>
+	       <configuration>
+		<mainClass>com.acme.ch06.ex04.NetworkServer</mainClass>
+	       </configuration>
+	      </execution>
+	     </executions>
+	    </plugin>
+	   </plugins>
+	  </build>
+	 </profile>
+
+	 <!-- mvn test -Psend -->
+	 <profile>
+	  <id>send</id>
+	  <build>
+	   <plugins>
+	    <plugin>
+	     <groupId>org.codehaus.mojo</groupId>
+	     <artifactId>exec-maven-plugin</artifactId>
+	     <version>1.1.1</version>
+	     <executions>
+	      <execution>
+	       <phase>test</phase>
+	       <goals>
+		<goal>java</goal>
+	       </goals>
+	       <configuration>
+		<mainClass>com.acme.ch06.ex04.Client</mainClass>
+	       </configuration>
+	      </execution>
+	     </executions>
+	    </plugin>
+	   </plugins>
+	  </build>
+	 </profile>
+	 
+	 
+	</profiles>    
+    
+</project>

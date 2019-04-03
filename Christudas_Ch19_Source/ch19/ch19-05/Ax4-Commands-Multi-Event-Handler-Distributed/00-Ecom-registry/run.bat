@@ -1,0 +1,1 @@
+java -jar .\target\00-Ecom-registry-0.0.1-SNAPSHOT.jar

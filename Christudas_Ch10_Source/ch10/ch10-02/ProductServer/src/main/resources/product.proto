@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package binildas;
+
+option java_package = "com.acme.ecom.product.model";
+option java_outer_classname = "ECom";
+
+message Products {
+  
+    repeated Product product = 1;
+}
+message Product {
+
+	string productId = 1;
+	string name = 2;
+	string code = 3;
+	string title = 4;
+	string description = 5;
+	string imgUrl = 6;
+	double price = 7;
+	string productCategoryName = 8;
+}
+	

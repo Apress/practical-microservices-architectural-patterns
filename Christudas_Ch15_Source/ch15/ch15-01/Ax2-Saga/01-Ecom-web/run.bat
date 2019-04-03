@@ -1,0 +1,1 @@
+java -jar .\target\01-Ecom-web-0.0.1-SNAPSHOT.jar

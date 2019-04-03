@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<div ng-controller="CartController  as cartCtrl" data-ng-init="init()">
+<h1><span class="label label-danger">Your cart</span></h1>
+<div class="well well-lg">
+	<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Product</th>
+					<th>Price</th>
+					<th>Quantity</th>
+					<th>Total Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="lineItem in myCart.lineItems">
+					<td><a href="" ng-click="showProductDetails(lineItem.id)"><img ng-src="{{productImgs[lineItem.id]}}"  err-src="<c:url value='/img/default.png' />"  height="75px" width="100px"/>
+					{{lineItem.name}}</a></td>
+					<td>$<span>{{lineItem.price}}</span></td>
+					<td>{{lineItem.quantity}}</td>
+					<td>$<span>{{lineItem.quantity * lineItem.price }}</span></td>
+					<td><a class="btn btn-info" role="button" ng-click="cartCtrl.remove(lineItem)">Remove</a></td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+	<div class="row">
+		<div class="caption col-sm-12 text-right">
+			<a class="btn btn-warning" role="button" ng-click="doOrder()">Order now</a>
+		</div>
+	</div>
+	</div>
+</div>
+

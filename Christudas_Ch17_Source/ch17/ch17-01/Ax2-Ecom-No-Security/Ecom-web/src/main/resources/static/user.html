@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+ <div ng-controller="LoginController  as loginCtrl" >
+<div class="container">
+<h1><span class="label label-danger">Login</span></h1>
+<div class="well well-lg">
+<form class="form-horizontal">
+<span ng-hide="validuser" style="color: red">Invalid credentials .Please use valid one </span>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="email">User name:</label>
+		<div class="col-sm-10">
+						<input type="text" class="form-control" id="username"
+							ng-model="userCredentialDTO.userName" placeholder="Enter username">
+					</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="pwd">Password:</label>
+		<div class="col-sm-10">
+			<input type="password" class="form-control" id="pwd"
+				placeholder="Enter password" ng-model="userCredentialDTO.password">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<div class="checkbox">
+				<label><a href="#newUser"><strong>New user?</strong></a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default" ng-click="loginCtrl.doLogin()">Submit</button>
+		</div>
+	</div>
+</form>
+</div>
+ </div> 
+

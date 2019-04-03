@@ -1,0 +1,1 @@
+java -jar -Dserver.port=8080 .\target\quotes-web-1.0.0.jar

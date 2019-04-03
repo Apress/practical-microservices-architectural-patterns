@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="hello">
+
+  <property name="src" value="src" /> 
+  <property name="targetdir" value="target" /> 
+  <property name="build" value="target/classes" /> 
+
+    <path id="classpath">
+      <pathelement path="."/>
+      <pathelement path="${build}"/>
+      <pathelement path="./src/main/resources"/>
+      
+      <fileset dir="D:/Applns/RabbitMQ/rabbitmq-java-client-bin-3.6.2">
+        <include name="rabbitmq-client.jar"/>
+      </fileset>
+      <fileset dir="D:/Applns/OtherOpenSource/slf4j/slf4j-1.7.25">
+        <include name="slf4j-api-1.7.25.jar"/>
+      </fileset>
+      <fileset dir="D:/Applns/apache/log4j/apache-log4j-2.8.2-bin">
+        <include name="log4j-api-2.8.2.jar"/>
+        <include name="log4j-core-2.8.2.jar"/>
+        <include name="log4j-slf4j-impl-2.8.2.jar"/>
+      </fileset>
+      
+      <!--
+      <fileset dir="C:/Users/binil/.m2/repository/com/rabbitmq/amqp-client/3.6.2">
+        <include name="amqp-client-3.6.2.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/slf4j/slf4j-api/1.6.1">
+        <include name="slf4j-api-1.6.1.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/apache/logging/log4j/log4j-api/2.7">
+        <include name="log4j-api-2.7.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/apache/logging/log4j/log4j-core/2.7">
+        <include name="log4j-core-2.7.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/apache/logging/log4j/log4j-slf4j-impl/2.7">
+        <include name="log4j-slf4j-impl-2.7.jar"/>
+      </fileset>
+      -->
+      
+    </path>
+
+	<target name="all" depends="clean, init, compile">
+	</target>
+
+    <target name="clean" description="cleans">
+        <delete dir="${targetdir}"/>
+    </target>
+
+    <target name="init" description="cleans">
+        <mkdir dir="${build}"/>
+    </target>
+
+	<target name="compile" description="Compile all Java">
+		<javac srcdir="." destdir="${build}" debug="on" source="1.6" target="1.6">
+			<classpath refid="classpath"/>
+		</javac>
+	</target>
+
+	<target name="listen" description="Runs the example client">
+		<echo>Running example client</echo>
+		<java classname="com.acme.ch06.ex01.Receive" fork="yes" maxmemory="100M">
+			<classpath refid="classpath"/>
+		</java>
+	</target>
+
+	<target name="send" description="Runs the example client">
+		<echo>Running example client</echo>
+		<java classname="com.acme.ch06.ex01.Send" fork="yes" maxmemory="100M">
+			<classpath refid="classpath"/>
+		</java>
+	</target>
+
+</project>

@@ -1,0 +1,1 @@
+mvn -Dtest=BrokerServiceTest#testSubmitQuote test

@@ -1,0 +1,1 @@
+java -Dserver.port=8086 -jar .\target\04-Ecom-EventHandleCore-0.0.1-SNAPSHOT.jar

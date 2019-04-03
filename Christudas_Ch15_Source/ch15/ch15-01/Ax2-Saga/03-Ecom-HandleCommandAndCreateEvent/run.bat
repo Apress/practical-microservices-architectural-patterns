@@ -1,0 +1,1 @@
+java -Dserver.port=8082 -Dlog4j.configurationFile=log4j2-spring.xml -jar .\target\03-Ecom-HandleCommandAndSaga-0.0.1-SNAPSHOT.jar

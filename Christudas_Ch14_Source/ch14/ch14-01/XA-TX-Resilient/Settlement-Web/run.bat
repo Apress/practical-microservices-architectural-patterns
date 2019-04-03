@@ -1,0 +1,1 @@
+java -jar -Dserver.port=8081 .\target\user-web-1.0.0.jar

@@ -1,0 +1,9 @@
+[{ "_class" : "com.acme.ecom.product.model.ProductCategory", "name" : "men_footwear", "title" : "Men's Footwear", "description" : "Mens shoes,sandels,", "imgUrl" : "" },
+{  "_class" : "com.acme.ecom.product.model.ProductCategory", "name" : "women_footwear", "title" : "Women's Footwear", "description" : "Women footwear", "imgUrl" : "" },
+{  "_class" : "com.acme.ecom.product.model.ProductCategory", "name" : "sunglass", "title" : "Sun glass", "description" : "sunglass", "imgUrl" : "" },
+{  "_class" : "com.acme.ecom.product.model.ProductCategory", "name" : "men_shirts", "title" : "Men Shirts", "description" : "shirts", "imgUrl" : "" },
+{  "_class" : "com.acme.ecom.product.model.ProductCategory", "name" : "tie", "title" : "Tie", "description" : "Tie", "imgUrl" : "" },
+{  "_class" : "com.acme.ecom.product.model.ProductCategory", "name" : "towel", "title" : "Towels", "description" : "towels", "imgUrl" : "" }
+]
+
+

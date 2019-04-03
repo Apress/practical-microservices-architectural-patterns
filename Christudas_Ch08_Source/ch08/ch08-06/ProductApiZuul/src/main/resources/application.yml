@@ -1,0 +1,25 @@
+spring:
+    application:
+        name: product-service-api
+server:
+    port: 8082
+
+zuul:
+  routes:
+     product-api:
+        path: /api/**
+        service-id: product-service
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 2000
+

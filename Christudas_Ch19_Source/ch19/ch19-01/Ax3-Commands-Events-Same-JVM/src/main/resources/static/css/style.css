@@ -1,0 +1,212 @@
+﻿
+/*=============================================================
+    Authour URI: www.binarytheme.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+
+
+
+
+
+/*=======================================
+    GENERAL STYLES
+==================================================*/
+body {
+          font-family:'Open Sans', sans-serif;
+    font-size:14px;
+}
+
+
+.text-center {
+    text-align:center;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:'Open Sans', sans-serif;
+}
+.alg-right-pad {
+    float:right;
+    padding-right:20px;
+}
+a:hover {
+    text-decoration:none;
+}
+
+/*=======================================
+  NAVBAR ADJUSTMENTS
+==================================================*/
+.navbar-brand {
+font-size: 25px;
+padding: 15px 80px 15px 60px;
+}
+.navbar-default .navbar-brand {
+color: #000000;
+}
+.navbar-default {
+background-color: #000000;
+border-color: #000000;
+}
+.navbar {
+ border-radius: 0px; 
+}
+.navbar-default .navbar-nav > li > a {
+color: #FFF;
+}
+.navbar-default .navbar-nav > li > a:hover {
+color: #FFF;
+}
+
+.navbar-default .navbar-brand {
+color: #FFFFFF;
+}
+.navbar-default .navbar-brand:hover {
+color: #FFFFFF;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+color: #050505;
+background-color: #FFFFFF;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+color: #000;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+color: #000;
+}
+/*=======================================
+  BOOTSTRAP ADJUSTMENTS
+==================================================*/
+.row {
+    margin-bottom:10px;
+}
+.btn {
+    margin-bottom:5px;
+}
+/*=======================================
+  INDEX PAGE
+==================================================*/
+
+.box-border {
+    border:1px solid #e1e1e1;
+}
+
+.product-box h3>a,.product-box h3>a:hover,.product-box h3>a:focus {
+    color:#000;
+    text-decoration:none;
+}
+
+.offer-box {
+background-color: #6A75F0;
+border: 1px solid #096FC0;
+color: #fff;
+font-weight: 900;
+font-size:16px;
+}
+    .offer-box a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: normal;
+    }
+    .offer-box a:hover {
+        color:#000;
+    }
+.list-group a {
+   
+    font-size:14px;
+    font-weight:900;
+    color:#808080;
+}
+.list-group a:hover {
+     color:#000;
+    text-decoration:none;
+}
+.offer-colors {
+   background-color: #B05FDD;
+border: 1px solid #A228F3;
+}
+
+.download-app-box {
+    background-color: #069E98;
+border: 1px solid #0FAA8B;
+padding:30px;
+line-height:40px;
+font-size:25px;
+font-weight:900;
+color:#fff;
+}
+/*=======================================
+  SLIDER main-style.css Changes
+==================================================*/
+.mi-slider {
+margin-top: 0px;
+}
+
+.offer-text
+{
+position: absolute;
+color: #FFF;
+padding: 14px 16px 12px 16px;
+margin-top: 10px;
+background-color:#18b424;
+
+}
+.offer-text2
+{
+position: absolute;
+color: #FFF;
+padding: 14px 16px 12px 16px;
+margin-top: 10px;
+background-color:#EB0429;
+
+}
+/*=======================================
+  FOOTER SECTION
+==================================================*/
+.footer-box {
+    background-color:#F5F5F5;
+    padding:20px 50px 20px 50px;
+    
+    
+}
+.small-box {
+    font-size:10px;
+}
+
+.footer-box a {
+    color:#808080;
+    text-decoration:none;
+}
+.footer-box a:hover {
+    color:#000;
+}
+.pad-botom {
+    padding-bottom:30px;
+}
+.footer-box p {
+    padding-top:15px;
+    padding-bottom:15px;
+    line-height:25px;
+}
+.social-box a{
+     color:#333436;
+    text-decoration:none;
+}
+
+.end-box {
+    padding:20px;
+     color:#fff;
+     background-color:#000;
+     font-size:14px;
+}
+
+.navbar-custom {
+    background-color:white;
+    border-radius:0;
+}

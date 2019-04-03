@@ -1,0 +1,1 @@
+mvn test -Plisten

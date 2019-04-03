@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.acme.ecom</groupId>
+	<artifactId>Ecom-cart</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>Ecom-cart</name>
+	<description>Cart micro service</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.4.RELEASE</version>
+		<relativePath/> 
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+        <slf4jVersion>1.6.1</slf4jVersion>
+        <log4j2Version>2.7</log4j2Version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		   <exclusions>
+			  <exclusion>
+				 <groupId>ch.qos.logback</groupId>
+				 <artifactId>logback-classic</artifactId>
+			  </exclusion>
+		   </exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		   <exclusions>
+			  <exclusion>
+				 <groupId>ch.qos.logback</groupId>
+				 <artifactId>logback-classic</artifactId>
+			  </exclusion>
+		   </exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		   <exclusions>
+			  <exclusion>
+				 <groupId>ch.qos.logback</groupId>
+				 <artifactId>logback-classic</artifactId>
+			  </exclusion>
+		   </exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		   <exclusions>
+			  <exclusion>
+				 <groupId>ch.qos.logback</groupId>
+				 <artifactId>logback-classic</artifactId>
+			  </exclusion>
+		   </exclusions>
+		</dependency>
+		
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		   <exclusions>
+			  <exclusion>
+				 <groupId>ch.qos.logback</groupId>
+				 <artifactId>logback-classic</artifactId>
+			  </exclusion>
+		   </exclusions>
+		</dependency>
+		 <dependency>
+		     <groupId>net.sf.ehcache</groupId>
+		     <artifactId>ehcache</artifactId>
+		     <version>2.9.0</version>
+	     </dependency>
+	     <!-- Config server -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		   <exclusions>
+			  <exclusion>
+				 <groupId>ch.qos.logback</groupId>
+				 <artifactId>logback-classic</artifactId>
+			  </exclusion>
+		   </exclusions>
+		</dependency>
+		
+			<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4jVersion}</version>
+		</dependency>
+
+		<dependency>
+		   <groupId>org.apache.logging.log4j</groupId>
+		   <artifactId>log4j-api</artifactId>
+		   <version>${log4j2Version}</version>
+		</dependency>
+		
+		<dependency>
+		   <groupId>org.apache.logging.log4j</groupId>
+		   <artifactId>log4j-core</artifactId>
+		   <version>${log4j2Version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j2Version}</version>
+		</dependency>
+		
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Dalston.SR1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,25 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.acme.ecom</groupId>
+	<artifactId>Ecom</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Ecom</name>        
+        <modules>
+            <module>Ecom-common</module>
+            <module>Ecom-config</module>
+            <module>Ecom-history</module>
+            <module>Ecom-gateway</module>
+            <module>Ecom-cart</module>
+            <module>Ecom-core</module>
+            <module>Ecom-delivery</module>
+            <module>Ecom-product</module>
+            <module>Ecom-registry</module>
+            <module>Ecom-shipping</module>
+            <module>Ecom-user</module>
+            <module>Ecom-web</module>
+        </modules> 
+  
+</project>

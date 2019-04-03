@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="hello">
+
+  <property name="src" value="src" /> 
+  <property name="targetdir" value="target" /> 
+  <property name="build" value="target/classes" /> 
+
+    <path id="classpath">
+      <pathelement path="."/>
+      <pathelement path="${build}"/>
+      <pathelement path="./src/main/resources"/>
+      
+      <fileset dir="C:/Users/binil/.m2/repository/org/springframework/spring-context/4.3.8.RELEASE">
+        <include name="spring-context-4.3.8.RELEASE.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/springframework/spring-core/4.3.8.RELEASE">
+        <include name="spring-core-4.3.8.RELEASE.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/springframework/spring-beans/4.3.8.RELEASE">
+        <include name="spring-beans-4.3.8.RELEASE.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/springframework/spring-expression/4.3.8.RELEASE">
+        <include name="spring-expression-4.3.8.RELEASE.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/springframework/spring-aop/4.3.8.RELEASE">
+        <include name="spring-aop-4.3.8.RELEASE.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/springframework/retry/spring-retry/1.1.5.RELEASE">
+        <include name="spring-retry-1.1.5.RELEASE.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/springframework/org.springframework.transaction/3.1.2.RELEASE">
+        <include name="org.springframework.transaction-3.1.2.RELEASE.jar"/>
+      </fileset>
+
+
+      <fileset dir="C:/Users/binil/.m2/repository/org/apache/commons/com.springsource.org.apache.commons.logging/1.1.1">
+        <include name="com.springsource.org.apache.commons.logging-1.1.1.jar"/>
+      </fileset>
+
+      <fileset dir="D:/Applns/RabbitMQ/rabbitmq-java-client-bin-3.6.2">
+        <include name="rabbitmq-client.jar"/>
+      </fileset>
+
+      <fileset dir="C:/Users/binil/.m2/repository/org/springframework/amqp/spring-amqp/1.6.9.RELEASE">
+        <include name="spring-amqp-1.6.9.RELEASE.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/springframework/amqp/spring-rabbit/1.6.9.RELEASE">
+        <include name="spring-rabbit-1.6.9.RELEASE.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/slf4j/slf4j-api/1.6.1">
+        <include name="slf4j-api-1.6.1.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/apache/logging/log4j/log4j-api/2.7">
+        <include name="log4j-api-2.7.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/apache/logging/log4j/log4j-core/2.7">
+        <include name="log4j-core-2.7.jar"/>
+      </fileset>
+      <fileset dir="C:/Users/binil/.m2/repository/org/apache/logging/log4j/log4j-slf4j-impl/2.7">
+        <include name="log4j-slf4j-impl-2.7.jar"/>
+      </fileset>
+      
+    </path>
+
+	<target name="all" depends="clean, init, compile">
+	</target>
+
+    <target name="clean" description="cleans">
+        <delete dir="${targetdir}"/>
+    </target>
+
+    <target name="init" description="cleans">
+        <mkdir dir="${build}"/>
+    </target>
+
+	<target name="compile" description="Compile all Java">
+		<javac srcdir="." destdir="${build}" debug="true" source="1.6" target="1.6">
+			<classpath refid="classpath"/>
+		</javac>
+	</target>
+
+	<target name="listen" description="Runs the example client">
+		<echo>Running example client</echo>
+		<java classname="com.acme.ch06.ex02.ListenerContainer" fork="yes" maxmemory="100M">
+			<classpath refid="classpath"/>
+		</java>
+	</target>
+
+	<target name="send" description="Runs the example client">
+		<echo>Running example client</echo>
+		<java classname="com.acme.ch06.ex02.Sender" fork="yes" maxmemory="100M">
+			<classpath refid="classpath"/>
+		</java>
+	</target>
+
+</project>

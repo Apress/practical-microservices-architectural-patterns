@@ -1,0 +1,1 @@
+java -Dserver.port=8080 -jar .\target\Axon-Concurrency-test-0.0.1-SNAPSHOT.jar

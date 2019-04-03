@@ -1,0 +1,2 @@
+rem D:\Applns\Google\ProtocolBuffer\protoc-3.4.0-win32\bin\protoc --proto_path .\src\main\resources --java_out .\src\main\java .\src\main\resources\product.proto
+mvn -Dmaven.test.skip=true clean package

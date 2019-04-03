@@ -1,0 +1,77 @@
+<html>
+  <head>  
+    <title>AngularJS $http Example</title>  
+    <style>
+      .username.ng-valid {
+          background-color: lightgreen;
+      }
+      .username.ng-dirty.ng-invalid-required {
+          background-color: red;
+      }
+      .username.ng-dirty.ng-invalid-minlength {
+          background-color: yellow;
+      }
+
+      .email.ng-valid {
+          background-color: lightgreen;
+      }
+      .email.ng-dirty.ng-invalid-required {
+          background-color: red;
+      }
+      .email.ng-dirty.ng-invalid-email {
+          background-color: yellow;
+      }
+
+    </style>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link href="/css/app.css" rel="stylesheet"></link>
+  </head>
+  <body ng-app="myApp" class="ng-cloak">
+      <div class="generic-container" ng-controller="ProductController as ctrl" data-ng-init="init()">
+          <div class="panel panel-default">
+                <!-- Default panel contents -->
+                 <div class="row">
+                          <div class="form-actions floatRight">
+                              <button type="button" ng-click="ctrl.refresh()" class="btn btn-warning btn-sm" >Refresh</button>
+                          </div>
+                      </div>
+              <div class="panel-heading"><span class="lead">List of Products</span>
+             </div>
+              <div class="tablecontainer">
+                  <table class="table table-hover">
+                      <thead>
+                          <tr>
+                             <th>Id</th>
+                              <th>Name</th>
+                              <th>Code</th>
+                              <th>Title</th>
+                              <th>Description</th>
+                              <th>Imange Url</th> 
+                              <th>Price</th>
+                              <th>Catagory</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="p in ctrl.products">
+                              <td><span ng-bind=p.id></span></td>
+                              <td><span ng-bind="p.name"></span></td>
+                              <td><span ng-bind="p.code"></span></td>
+                              <td><span ng-bind="p.title"></span></td>
+                               <td><span ng-bind="p.description"></span></td>
+                               <td><span ng-bind="p.imgUrl"></span></td>
+                              <td><span ng-bind="p.price"></span></td>
+                              <td><span ng-bind="p.productCategoryName"></span></td>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+      <script src="/js/app.js"></script>
+      <script src="/js/service/product_service.js"></script>
+      <script src="/js/controller/product_controller.js"></script>
+     </body>
+</html>

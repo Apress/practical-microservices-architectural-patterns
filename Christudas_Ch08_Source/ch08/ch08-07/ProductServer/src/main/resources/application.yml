@@ -1,0 +1,14 @@
+server:
+  port: 8081
+
+spring:  
+  application:
+    name: productservice
+  cloud:
+    config:
+      server:
+        uri: http://localhost:8888
+        
+management: 
+  security: 
+    enabled: false 

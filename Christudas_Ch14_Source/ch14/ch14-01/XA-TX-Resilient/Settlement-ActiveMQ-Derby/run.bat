@@ -1,0 +1,1 @@
+mvn -Dtest=SettlementListenerServiceTest#testSettleQuote test

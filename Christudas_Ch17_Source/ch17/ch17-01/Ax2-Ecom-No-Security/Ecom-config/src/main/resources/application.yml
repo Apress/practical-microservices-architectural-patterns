@@ -1,0 +1,13 @@
+spring:
+   application:
+         name: ecom-config
+   cloud:
+     config:
+      server: 
+           git:
+            uri: file://D:/binil/gold/pack03/ch17/ch17-01/Ax2-Ecom-No-Security/config-repo   
+
+server:
+  port: 8888
+
+#file:/home/myname/Ecom-WS/Ecom-NoSec/Ecom/config-repo

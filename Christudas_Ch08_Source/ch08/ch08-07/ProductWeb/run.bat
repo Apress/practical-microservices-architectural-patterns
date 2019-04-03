@@ -1,0 +1,1 @@
+java -Dserver.port=8080 -Dspring.application.name=productweb -jar .\target\Ecom-Product-Microservice-0.0.1-SNAPSHOT.jar

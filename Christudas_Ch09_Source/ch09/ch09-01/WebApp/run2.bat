@@ -1,0 +1,1 @@
+java -Dserver.port=9002 -Dspring.application.name=product-home -Deureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/,http://localhost:8762/eureka/ -jar .\target\Ecom-Product-Microservice-0.0.1-SNAPSHOT.jar

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2019/2020 Binildas A Christudas, Apress Media, LLC. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+- Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+
+- Redistribution in binary form must reproduce the above copyright
+  notice, this list of conditions and the following disclaimer in
+  the documentation and/or other materials provided with the
+  distribution.
+
+Neither the name of the author, publisher or the names of
+contributors may be used to endorse or promote products derived
+from this software without specific prior written permission.
+
+This software is provided "AS IS," without a warranty of any
+kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+EXCLUDED. AUTHOR, PUBLISHER AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY
+DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL THE AUTHOR,
+PUBLISHER OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA,
+OR FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR
+PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF
+LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE SOFTWARE,
+EVEN IF THE AUTHOR, PUBLISHER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+You acknowledge that Software is not designed, licensed or intended
+for use in the design, construction, operation or maintenance of
+any nuclear facility.
+
+author <a href="mailto:biniljava<[@>.]yahoo.co.in">Binildas C. A.</a>
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd 
+	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd 
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd ">
+
+
+	<bean id="datasourceAtomikos-02" class="com.atomikos.jdbc.AtomikosDataSourceBean" init-method="init" destroy-method="close"> 
+		<property name="uniqueResourceName"><value>JDBC-2</value></property>
+		<property name="xaDataSourceClassName" value="org.apache.derby.jdbc.ClientXADataSource" /> 
+
+		<property name="xaProperties"> 
+			<props> 
+				<prop key="databaseName">D:/Applns/apache/Derby/derbydb/sampledb</prop> 
+				<prop key="serverName">localhost</prop> 
+				<prop key="portNumber">1527</prop> 
+			</props> 
+		</property> 
+		<property name="poolSize"><value>20</value></property>
+	</bean>
+
+	<bean id="atomikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager" init-method="init" destroy-method="close">
+		<property name="forceShutdown"><value>true</value></property>
+	</bean>
+
+	<bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">
+		<property name="transactionTimeout"><value>300</value></property>
+	</bean>
+
+
+	<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+
+		<property name="transactionManager"><ref bean="atomikosTransactionManager"  /></property>
+		<property name="userTransaction"><ref bean="atomikosUserTransaction"  /></property>
+	</bean>
+
+	<bean id="springJtaPlatformAdapter" class="com.acme.ecom.AtomikosJtaPlatform">
+		<property name="jtaTransactionManager" ref="transactionManager" />
+	</bean>
+
+	<bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+
+	<bean id="userEntityManager" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="datasourceAtomikos-02"/>
+		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.transaction.jta.platform">com.acme.ecom.AtomikosJtaPlatform</prop>
+				<prop key="javax.persistence.transactionType">JTA</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" value="com.acme.ecom.model"/>
+		<property name="persistenceUnitName" value="userPersistenceUnit" />
+	</bean>
+
+	<jpa:repositories base-package="com.acme.ecom.repository" entity-manager-factory-ref="userEntityManager"/> 
+
+    <bean id="XaFactory" class="org.apache.activemq.ActiveMQXAConnectionFactory">
+        <property name="brokerURL" value="failover:(tcp://127.0.0.1:61616)?timeout=10000"/>
+    </bean>
+
+    <bean id="connectionFactory" class="com.atomikos.jms.AtomikosConnectionFactoryBean" init-method="init">
+        <property name="uniqueResourceName" value="JMS-Consumer"/>
+        <property name="xaConnectionFactory" ref="XaFactory"/>
+    </bean>
+
+       <bean id="notificationListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+               
+			  <property name="messageListener" ref="notificationListener"/>
+			  <property name="receiveTimeout" value="10000"/>
+			  <property name="connectionFactory" ref="connectionFactory"/>
+			  <!--property name="destination" ref="inputQueueDestination"/-->
+			  <property name="destinationName" value="notification.queue"/>
+			  <property name="transactionManager" ref="transactionManager"/>
+			  <property name="sessionTransacted" value="true"/>
+			  <property name="sessionAcknowledgeMode" value="0"/>
+
+         </bean>
+
+
+         <bean id="notificationListener" class="com.acme.ecom.messaging.SettlementListener">
+         	<property name="quotesReconcileServiceRequired_TX"><ref bean="quotesReconcileServiceRequired_TX"  /></property>
+         	<property name="quotesReconcileServiceRequiresNew_TX"><ref bean="quotesReconcileServiceRequiresNew_TX"  /></property>
+         </bean>
+
+    
+	<bean id="quotesReconcileServiceTarget" class= "com.acme.ecom.service.QuotesReconcileServiceImpl">
+	</bean>
+
+	<bean id="quotesReconcileServiceRequired_TX" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager"><ref bean="transactionManager" /></property>
+		<property name="target"><ref bean="quotesReconcileServiceTarget"  /></property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="reconcile*">PROPAGATION_REQUIRED, -QuotesReconcileRollbackException, +QuotesNoRollbackException</prop>
+				<prop key="find*">PROPAGATION_SUPPORTS, readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="quotesReconcileServiceRequiresNew_TX" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager"><ref bean="transactionManager" /></property>
+		<property name="target"><ref bean="quotesReconcileServiceTarget"  /></property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="reconcile*">PROPAGATION_REQUIRES_NEW, -QuotesReconcileRollbackException, +QuotesNoRollbackException</prop>
+				<prop key="find*">PROPAGATION_SUPPORTS, readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="quotesTransactionServiceTarget" class= "com.acme.ecom.service.QuotesTransactionServiceImpl">
+	</bean>
+
+	<bean id="quotesTransactionServiceRequired_TX" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager"><ref bean="transactionManager" /></property>
+		<property name="target"><ref bean="quotesTransactionServiceTarget"  /></property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="insertUniqueNoErrorOnDuplicate*">PROPAGATION_REQUIRED, -QuotesReconcileRollbackException</prop>
+				<prop key="markSettled*">PROPAGATION_REQUIRED, -QuotesReconcileRollbackException</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="quotesTransactionServiceRequiresNew_TX" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager"><ref bean="transactionManager" /></property>
+		<property name="target"><ref bean="quotesTransactionServiceTarget"  /></property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="insertUniqueNoErrorOnDuplicate*">PROPAGATION_REQUIRES_NEW, -QuotesReconcileRollbackException</prop>
+				<prop key="markSettled*">PROPAGATION_REQUIRES_NEW, -QuotesReconcileRollbackException</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

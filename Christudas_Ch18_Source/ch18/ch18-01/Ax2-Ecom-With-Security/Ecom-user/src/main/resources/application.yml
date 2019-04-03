@@ -1,0 +1,6 @@
+spring:
+ application:
+     name: ecom-user
+server:
+  port: 8083
+

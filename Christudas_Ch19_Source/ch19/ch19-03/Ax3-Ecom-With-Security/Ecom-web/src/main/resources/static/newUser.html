@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<div ng-controller="NewUserController  as userCtrl" > 
+<div class="container">
+	<h1>
+		<span class="label label-danger">Registration</span>
+	</h1>
+	<div class="well well-lg">
+		<form class="form-horizontal" name="userForm" method="post" novalidate>
+			<li class="list-group-item">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="username">User name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="username"  ng-model="user.userName" placeholder="Enter your user name"
+							 required>
+					    <span ng-show="userForm.$dirty && userForm.username.$error.required" style="color: red">This is a required field</span>
+					    <span ng-show="duplicateUser" style="color: red">User with same name already exist</span>
+					    
+             
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pwd">Password</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" name="pwd" ng-model="user.password" placeholder="Enter your password"
+							required>
+							 <span ng-show="userForm.$dirty && userForm.pwd.$error.required" style="color: red">This is a required field</span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pwd">Confirm
+						Password</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" name="confirmPassword" ng-model="user.confirmPassword" placeholder="Enter your password"
+							required>
+							 <span ng-show="userForm.$dirty && userForm.confirmPassword.$error.required" style="color: red">This is a required field</span>
+							  <span ng-show="passwordNotMaching" style="color: red">Mismatching passwords</span>
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="panel panel-default">
+					<div class="panel-heading"></div>
+					<div class="panel-body">
+							<div class="form-group">
+								<label class="control-label col-sm-2 ">First name</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="firstName"  ng-model="user.firstName"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">Last name</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="lastName" ng-model="user.lastName"  />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">Email</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" name="email"  ng-model="user.email" placeholder="Enter your email" required/>
+									<span ng-show="userForm.$dirty && userForm.email.$error.required" style="color: red">This is a required field</span>
+									<span ng-show="userForm.$dirty && userForm.email.$error.email"  style="color: red">Invalid email address.</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">Mobile</label>
+								<div class="col-sm-10">
+									<input type="number" class="form-control" name="mobile" ng-model="user.phone" placeholder="Enter your mobile" ng-minlength="10" 
+                                     ng-maxlength="10"  required />
+									<span ng-show="userForm.$dirty && userForm.mobile.$error.required" style="color: red">This is a required a valid mobile no</span> <span
+										ng-show="((userForm.mobile.$error.minlength || 
+						                         userForm.mobile.$error.maxlength) && 
+						                         userForm.mobile.$dirty) " style="color: red">
+																phone number should be 10 digits </span>
+														</div>
+													</div> 
+
+					</div>
+				</div>
+				<table style="width:100%"><tr><td>
+				<div class="panel panel-default">
+					<div class="panel-heading">Billing Address</div>
+					<div class="panel-body">
+							<div class="form-group">
+								<label class="control-label col-sm-2">Apartment</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="appartment" ng-model="billing.appartment" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">Street</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="street" ng-model="billing.street" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">Province</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="province" ng-model="billing.province"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">State</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="state" ng-model="billing.state"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">Country</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="country" ng-model="billing.country" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">Pin</label>
+								<div class="col-sm-10">
+									<input type="number" class="form-control" id="pin" ng-model="billing.pin"/>
+								</div>
+							</div>
+							
+
+					</div>
+				</div>
+				</td><td>
+				<div class="panel panel-default">
+					<div class="panel-heading">Shipping Address  (same as billing address <input type="checkbox"  id="sameBillingAddress"  ng-model="user.sameBillingAddress"/>   )</div>
+					<div class="panel-body">
+							<div class="form-group">
+								<label class="control-label col-sm-2">Apartment</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="ship-appartment" ng-model="shipping.appartment" ng-disabled="user.sameBillingAddress" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">Street</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="ship-street" ng-model="shipping.street" ng-disabled="user.sameBillingAddress" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">Province</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="ship-province"  ng-model="shipping.province" ng-disabled="user.sameBillingAddress" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">State</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="ship-state" ng-model="shipping.state" ng-disabled="user.sameBillingAddress" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">Country</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="ship-country" ng-model="shipping.country" ng-disabled="user.sameBillingAddress"  />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2">Pin</label>
+								<div class="col-sm-10">
+									<input type="number" class="form-control" ng-model="shipping.pin" ng-disabled="user.sameBillingAddress"  />
+								</div>
+							</div>
+							
+
+					</div>
+
+				</div>
+				
+				</td></tr>
+				</table>
+	</li>
+
+	<div class="form-group" align="center">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-danger" ng-disabled="userForm.$invalid" ng-click="userCtrl.addUser()">Submit</button>
+		</div>
+	</div>
+	</form>
+</div>
+</div>
+<!-- </div> -->
+

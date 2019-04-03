@@ -1,0 +1,349 @@
+ [
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Lee mens XX",
+        "code": "LEE",
+        "title": "Lee mens choice",
+        "description": "Lee shoes 8 inches ,blue...",
+        "imgUrl": "shoe1.jpg",
+        "price": 120,
+        "productCategoryName": "men_footwear"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Action classic",
+        "code": "ACTION",
+        "title": "Action",
+        "description": "Action shoes 7 inches,grey ... ",
+        "imgUrl": "shoe2.jpg",
+        "price": 167,
+        "productCategoryName": "men_footwear"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Addidas DX",
+        "code": "ADDIDAS",
+        "title": "Addidas",
+        "description": "Addidas shoes 8 inches, green ",
+        "imgUrl": "shoe3.jpg",
+        "price": 180,
+        "productCategoryName": "men_footwear"
+      },
+
+     {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Nike class",
+        "code": "NIKE",
+        "title": "Nike",
+        "description": "Nike shoes 8 inches, gray ",
+        "imgUrl": "shoe4.jpg",
+        "price": 180,
+        "productCategoryName": "men_footwear"
+      },
+
+     {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Lee 12B",
+        "code": "LEE_1",
+        "title": "Lee ",
+        "description": "Lee shoes 8 inches ,brown...",
+        "imgUrl": "shoe5.jpg",
+        "price": 110,
+        "productCategoryName": "men_footwear"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Action ASD",
+        "code": "ACTION_1",
+        "title": "Action",
+        "description": "Action shoes 7 inches,black ... ",
+        "imgUrl": "shoe6.jpg",
+        "price": 130,
+        "productCategoryName": "men_footwear"
+      },
+
+     {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Laxme 12",
+        "code": "LAXME",
+        "title": "Laxme ",
+        "description": "Laxme footwear 5 inches ,golden...",
+        "imgUrl": "women-shoe1.jpg",
+        "price": 120,
+        "productCategoryName": "women_footwear"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Laxme 13",
+        "code": "LAXME13",
+        "title": "Laxme",
+        "description": "Laxme 6 inches,perl white ... ",
+        "imgUrl": "women-shoe2.jpg",
+        "price": 167,
+        "productCategoryName": "women_footwear"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Addidas Women",
+        "code": "ADDIDAS_W",
+        "title": "Addidas for women",
+        "description": "Addidas women special 7 inches, red ,high heel",
+        "imgUrl": "women-shoe3.jpg",
+        "price": 180,
+        "productCategoryName": "women_footwear"
+      },
+
+     {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Wedges",
+        "code": "WEDGES",
+        "title": "Wedges",
+        "description": "Wedges  8 inches, white ",
+        "imgUrl": "women-shoe4.jpg",
+        "price": 180,
+        "productCategoryName": "women_footwear"
+      },
+
+     {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Lee sandles",
+        "code": "LEE_2",
+        "title": "Lee sandles ",
+        "description": "Lee sadles 8 inches ,white...",
+        "imgUrl": "women-shoe5.jpg",
+        "price": 110,
+        "productCategoryName": "women_footwear"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Lee sandles",
+        "code": "LEE_3",
+        "title": "Lee sandles",
+        "description": "Lee sandles 7 inches,white ... ",
+        "imgUrl": "women-shoe6.jpg",
+        "price": 130,
+        "productCategoryName": "women_footwear"
+      },
+
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Rayban",
+        "code": "RAYBAN1",
+        "title": "Rayban ",
+        "description": "Rayban classic...",
+        "imgUrl": "sunglass1.jpg",
+        "price": 120,
+        "productCategoryName": "sunglass"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Rayban",
+        "code": "RAYBAN2",
+        "title": "Rayban",
+        "description": "Rayban swimmer  ... ",
+        "imgUrl": "sunglass2.jpg",
+        "price": 167,
+        "productCategoryName": "sunglass"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Rayban",
+        "code": "RAYBAN3",
+        "title": "Rayban",
+        "description": "Rayban classic for men",
+        "imgUrl": "sunglass3.jpg",
+        "price": 180,
+        "productCategoryName": "sunglass"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Fast-track",
+        "code": "FASTTRACK1",
+        "title": "fasttrack",
+        "description": "Fasttrack for men",
+        "imgUrl": "sunglass4.jpg",
+        "price": 180,
+        "productCategoryName": "sunglass"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Fast-track",
+        "code": "FASTTRACK2",
+        "title": "fqasttrack",
+        "description": "Fasttrack for men",
+        "imgUrl": "sunglass5.jpg",
+        "price": 110,
+        "productCategoryName": "sunglass"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Fast-track",
+        "code": "FASTTRACK3",
+        "title": "fasttrack",
+        "description": "Fast track for men",
+        "imgUrl": "sunglass6.jpg",
+        "price": 130,
+        "productCategoryName": "sunglass"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Arrow classic",
+        "code": "ARROW1",
+        "title": "Arrow ",
+        "description": "Arrow classic,40 inch,white...",
+        "imgUrl": "shirt1.jpg",
+        "price": 120,
+        "productCategoryName": "men_shirts"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Arrow classic",
+        "code": "ARROW2",
+        "title": "Arrow ",
+        "description": "Arrow classic,38 inch,white...",
+        "imgUrl": "shirt2.jpg",
+        "price": 167,
+        "productCategoryName": "men_shirts"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Arrow classic",
+        "code": "ARROW3",
+        "title": "Arrow ",
+        "description": "Arrow classic,38 inch,black and yellow...",
+        "imgUrl": "shirt3.jpg",
+        "price": 180,
+        "productCategoryName": "men_shirts"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Polo",
+        "code": "POLO1",
+        "title": "polo",
+        "description": "Polo red 38 inches cotton",
+        "imgUrl": "shirt4.jpg",
+        "price": 180,
+        "productCategoryName": "men_shirts"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Polo",
+        "code": "POLO2",
+        "title": "polo",
+        "description": "Polo green 38 inches cotton",
+        "imgUrl": "shirt5.jpg",
+        "price": 110,
+        "productCategoryName": "men_shirts"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Polo",
+        "code": "POLO3",
+        "title": "polo",
+        "description": "Polo red 40 inches cotton",
+        "imgUrl": "shirt6.jpg",
+        "price": 130,
+        "productCategoryName": "men_shirts"
+      },
+   
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Don",
+        "code": "DON1",
+        "title": "Don ",
+        "description": "Don classic 1...",
+        "imgUrl": "tie1.jpg",
+        "price": 120,
+        "productCategoryName": "tie"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Don",
+        "code": "DON2",
+        "title": "Don ",
+        "description": "Don classic 2...",
+        "imgUrl": "tie2.jpg",
+        "price": 167,
+        "productCategoryName": "tie"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Don",
+        "code": "DON3",
+        "title": "Don ",
+        "description": "Don classic 3...",
+        "imgUrl": "tie3.jpg",
+        "price": 180,
+        "productCategoryName": "tie"
+      },
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "Don",
+        "code": "DON4",
+        "title": "Don ",
+        "description": "Don classic 4...",
+        "imgUrl": "tie4.jpg",
+        "price": 180,
+        "productCategoryName": "tie"
+      },  
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "X-Cotten",
+        "code": "X-COTTEN1",
+        "title": "X-coten ",
+        "description": "X-cotten 20 inches white",
+        "imgUrl": "towel1.jpg",
+        "price": 10,
+        "productCategoryName": "towel"
+      },  
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "X-Cotten",
+        "code": "X-COTTEN2",
+        "title": "X-coten ",
+        "description": "X-cotten 18 inches grey",
+        "imgUrl": "towel2.jpg",
+        "price": 18,
+        "productCategoryName": "towel"
+      },  
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "X-Cotten",
+        "code": "X-COTTEN3",
+        "title": "X-coten ",
+        "description": "X-cotten 23 inches white",
+        "imgUrl": "towel3.jpg",
+        "price": 13,
+        "productCategoryName": "towel"
+      },  
+     {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "X-Cotten",
+        "code": "X-COTTEN4",
+        "title": "X-coten ",
+        "description": "X-cotten 20 inches white",
+        "imgUrl": "towel4.jpg",
+        "price": 13,
+        "productCategoryName": "towel"
+      },  
+      {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "X-Cotten",
+        "code": "X-COTTEN5",
+        "title": "X-coten ",
+        "description": "X-cotten 20 inches white",
+        "imgUrl": "towel5.jpg",
+        "price": 15,
+        "productCategoryName": "towel"
+      },  
+     {
+       "_class" : "com.acme.ecom.product.model.Product",
+        "name": "X-Cotten",
+        "code": "X-COTTEN6",
+        "title": "X-coten ",
+        "description": "X-cotten 20 inches white",
+        "imgUrl": "towel6.jpg",
+        "price": 17,
+        "productCategoryName": "towel"
+      } 
+ ]

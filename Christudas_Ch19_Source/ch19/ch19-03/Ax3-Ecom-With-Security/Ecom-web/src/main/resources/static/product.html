@@ -1,0 +1,112 @@
+
+    <div  ng-controller="ProductController  as ctrl"  data-ng-init="init()">
+       
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-md-3">
+                
+                <!-- /.div -->
+                <div>
+                    <a  class="list-group-item active list-group-item-success">Shop by category
+                    </a>
+                    <ul class="list-group" >
+                          <div  ng-controller="ProductCategoryController  as categoryctrl" >                       
+                          <li class="list-group-item" ng-repeat="category in categories"><a  class="btn btn-link"  ng-click="categoryctrl.loadProducts(category.name)"><span ng-bind="category.title"/> </a>
+                                                   
+                        </li>
+                      </div>  
+                        
+                    </ul>
+                </div>
+                <!-- /.div -->
+                
+                
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-success"><a href="#productSearch">New Offer's Coming </a></li>
+                        <li class="list-group-item list-group-item-info"><a href="#productSearch">New Products Added</a></li>
+                        <li class="list-group-item list-group-item-warning"><a href="#productSearch">Ending Soon Offers</a></li>
+                        <li class="list-group-item list-group-item-danger"><a href="#productSearch">Just Ended Offers</a></li>
+                    </ul>
+                </div>
+                <!-- /.div -->
+                <div class="well well-lg offer-box offer-colors">
+
+
+                    <span class="glyphicon glyphicon-star-empty"></span>25 % off  , GRAB IT                 
+              
+                   <br />
+                    <br />
+                    <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 70%">
+                            <span class="sr-only">70% Complete (success)</span>
+                            2hr 35 mins left
+                        </div>
+                    </div>
+                    <a href="#productSearch">click here to know more </a>
+                </div>
+                <!-- /.div -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div>
+                    <ol class="breadcrumb">
+                        <li><a>Home</a></li>
+                        <li class="active">{{categoryName}}</li>
+                         <li class="active">{{product.name}}</li>
+                    </ol>
+                </div>
+                <!-- /.div -->
+                
+                <!--  products panel -->
+                 <div >
+               
+              
+                <!-- /.row -->
+              
+          
+                <div class="row">
+           
+                </div>
+                <!-- /.row -->
+                </div>
+                 <div > 
+                 <div class="alert alert-success" ng-show="showcartMessage">
+                     <strong>Success! Your item added to the cart</strong> 
+                </div>
+                 <div class="row">
+                  <div class="col-sm-12 text-center" >
+                        <div class="thumbnail product-box">
+                            <img height="400px" width="400px" ng-src={{product._links.imgUrl.href}}  err-src="/static/img/default.png" />
+                            <div class="caption">
+                                <h3><a> {{product.name}} </a></h3>
+                                <p>Price : <strong>$ {{product.price}} </strong>  </p>
+                                 <p>{{product.title}} </p>
+                                <p>{{product.description}}</p>                               
+                            </div>                          
+                         
+                        </div>
+                    </div>
+                    <div class="caption col-sm-12 text-center">
+                                <p style="color:green;font-size: larger;" ng-show="isStockAvailable"><strong> {{quantities.length}} items in stock  </strong> </p>
+                                <p style="color:red;font-size: larger;" ng-hide="isStockAvailable"><strong> Sorry no stock </strong> </p> 
+                                <p ng-show="isStockAvailable"> 
+                                Quantity                              
+                                <select ng-model="quantity"  >
+                                     <option  ng-repeat="option in quantities" value="{{option}}">{{option}}</option>
+                                 </select>
+                                 <a  class="btn btn-warning" role="button" ng-click="ctrl.addToCart()">Add To Cart</a> 
+                               </p>
+                                                   
+                               
+                    </div>
+                  </div>
+                 </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+   

@@ -1,0 +1,8 @@
+spring:
+ application:
+     name: ecom-shipping
+server:
+  port: 8086
+
+
+  

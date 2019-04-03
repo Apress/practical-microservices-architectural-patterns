@@ -1,0 +1,129 @@
+
+    <div  ng-controller="ProductSearchController  as ctrl"  data-ng-init="init()" >
+       
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-md-3">
+                
+                <!-- /.div -->
+                <div>
+                    <a  class="list-group-item active list-group-item-success">Shop by category
+                    </a>
+                    <ul class="list-group" >
+                     <div  ng-controller="ProductCategoryController  as categoryctrl" >
+                       
+                        <li class="list-group-item" ng-repeat="category in categories"><a  class="btn btn-link"  ng-click="categoryctrl.loadProducts(category.name)"><span ng-bind="category.title"/> </a>
+                                                        
+                        </li>
+                      </div>  
+                        
+                    </ul>
+                </div>
+                <!-- /.div -->
+                
+                
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-success"><a href="#productSearch">New Offer's Coming </a></li>
+                        <li class="list-group-item list-group-item-info"><a href="#productSearch">New Products Added</a></li>
+                        <li class="list-group-item list-group-item-warning"><a href="#productSearch">Ending Soon Offers</a></li>
+                        <li class="list-group-item list-group-item-danger"><a href="#productSearch">Just Ended Offers</a></li>
+                    </ul>
+                </div>
+                <!-- /.div -->
+                <div class="well well-lg offer-box offer-colors">
+
+
+                    <span class="glyphicon glyphicon-star-empty"></span>25 % off  , GRAB IT                 
+              
+                   <br />
+                    <br />
+                    <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+                            style="width: 70%">
+                            <span class="sr-only">70% Complete (success)</span>
+                            2hr 35 mins left
+                        </div>
+                    </div>
+                    <a href="#productSearch">click here to know more </a>
+                </div>
+                <!-- /.div -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div>
+                    <ol class="breadcrumb">
+                        <li><a>Home</a></li>
+                        <li class="active">{{categoryName}}</li>
+                         <li class="active">{{product.name}}</li>
+                    </ol>
+                </div>
+                <!-- /.div -->
+                
+                <!--  products panel -->
+                 <div >
+               
+                <div class="row">
+                    <div class="btn-group alg-right-pad">
+                        <button type="button" class="btn btn-default"><strong>{{productCount}} </strong>items</button>
+                        <!-- <div class="btn-group">
+                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                                Sort Products &nbsp;
+      <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">By Price Low</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">By Price High</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">By Popularity</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">By Reviews</a></li>
+                            </ul>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-md-4 text-center col-sm-6 col-xs-6" ng-repeat="product in products">
+                        <div class="thumbnail product-box">
+                            <img   ng-src={{product._links.imgUrl.href}}  err-src="/static/img/default.png" />
+                            <div class="caption"> 
+                                <h3><a><span ng-bind="product.name"/> </a></h3>
+                                <p>Price : <strong>$ <span ng-bind="product.price"/> </strong>  </p>
+                                <p></p>
+                                <p><span ng-bind="product.title"/>  </p>
+                                <p>
+                               <!--  <a  class="btn btn-success" role="button">Add To Cart</a>  -->
+                                <a class="btn btn-primary" role="button"  ng-click="showProductDetails(product.id)">See Details</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+          
+                <div class="row">
+                   
+                </div>
+                <!-- /.row -->
+                <!-- <div class="row">
+                    <ul class="pagination alg-right-pad">
+                        <li><a>&laquo;</a></li>
+                        <li><a >1</a></li>
+                        <li><a >2</a></li>
+                        <li><a> 3</a></li>
+                        <li><a >4</a></li>
+                        <li><a >5</a></li>
+                        <li><a >&raquo;</a></li>
+                    </ul>
+                </div> -->
+                <!-- /.row -->
+                </div>
+              </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+   
